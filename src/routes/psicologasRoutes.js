@@ -6,7 +6,7 @@ const router = express.Router();
 router.get('/', controller.getPsicologas);
 router.get('/estado', controller.getByEstado);
 router.get('/cidade', controller.getByCidade);
-router.get('/:id', controller.getIdPsicologa);
+router.get('/:id', controller.getIdPsicologas);
 router.post('/add', controller.createPsicologa);
 router.patch('/:id', controller.updatePsicologa);
 router.delete('/:id', controller.deletePsicologas)

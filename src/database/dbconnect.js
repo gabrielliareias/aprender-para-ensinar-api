@@ -1,18 +1,19 @@
-const mongoose = require('mongoose')
+const DATABASE_MONGO = process.env.DATABASE_MONGO
+const mongoose = require("mongoose");
 
-const connect = async() => {
-   try {
-     await mongoose.connect(process.env.ADMIN_ID, {
+const connect = async () => {
+  try {
+    mongoose.connect(DATABASE_MONGO, {
       useNewUrlParser: true,
-      useUnifiedTopology: true
-     })
-
-     console.log('Database connected!')
-   } catch (error) {
-    console.error(error)
-   }
-}
+      useUnifiedTopology: true,
+    });
+    console.log("Database foi conectada com sucesso!");
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 module.exports = {
-  connect
-}
+  connect,
+};
+

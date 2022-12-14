@@ -1,5 +1,5 @@
 const psicologas = require("../models/psicologasModels.js");
-const jwt = require("jsonwebtoken");
+
 const SECRET = `${process.env.TOKEN_SECRET}`;
 
 const getPsicologas = (req, res) => {

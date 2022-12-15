@@ -32,6 +32,7 @@ const getByCidade = async (req, res) => {
   }
 };
 
+
 const getIdPsicologas = (req, res) => {
   const id = req.params.id;
 

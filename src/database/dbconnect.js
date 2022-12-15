@@ -1,5 +1,6 @@
-const DATABASE_MONGO = process.env.DATABASE_MONGO
 const mongoose = require("mongoose");
+const DATABASE_MONGO = process.env.DATABASE_MONGO
+mongoose.set("strictQuery", false);
 
 const connect = async () => {
   try {

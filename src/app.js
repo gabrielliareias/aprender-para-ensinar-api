@@ -1,3 +1,4 @@
+require("dotenv-safe").config()
 const express = require('express');
 const psicologas = require('./routes/psicologasRoutes.js');
 const mongoose = require('./database/dbConnect.js');
@@ -6,7 +7,7 @@ const swaggerFile = require('../swagger/swagger_output.json');
 
 const cors = require("cors") 
 
-require("dotenv").config()
+
 
 const app = express()
 mongoose.connect()

@@ -46,18 +46,7 @@ const getIdPsicologas = (req, res) => {
 
 const createPsicologa = async (req, res) => {
   try {
-    const authHeader = req.get("authorization");
-    if (!authHeader) {
-      return res.status(401).json("You need an authorization");
-    }
-    const token = authHeader.split(" ")[1];
-    await jwt.verify(token, SECRET, async function (erro) {
-      if (erro) {
-        return res.status(403).send("Access denied");
-      }
-      const allPsicologas = await psicologa.find();
-      res.status(200).json(allPsicologas);
-    });
+    
     const { nome, cidade, estado, contato, email } = req.body;
 
     const newPsicologa = new psicologa({
@@ -77,19 +66,7 @@ const createPsicologa = async (req, res) => {
 
 const updatePsicologa = async (req, res) => {
   try {
-    const authHeader = req.get("authorization");
-
-    if (!authHeader) {
-      return res.status(401).send("You need authorization");
-    }
-
-    const token = authHeader.split(" ")[1];
-
-    await jwt.verify(token, SECRET, async function (err) {
-      if (err) {
-        return res.status(403).send("Denied access");
-      }
-    });
+    
     const { nome, cidade, estado, contato, email } = req.body;
 
     await psicologas.findByIdAndUpdate(req.params.id, {
@@ -109,24 +86,12 @@ const updatePsicologa = async (req, res) => {
 
 const deletePsicologas = async (req, res) => {
   try {
-    const authHeader = req.get("authorization");
-
-    if (!authHeader) {
-      return res.status(401).send("You need authorization");
-    }
-
-    const token = authHeader.split(" ")[1];
-
-    await jwt.verify(token, SECRET, async function (err) {
-      if (err) {
-        return res.status(403).send("Denied access");
-      }
-    });
+    
     const { id } = req.params;
     const findByIdAndDelete = await psicologas.findByIdAndDelete(id);
 
     if (findByIdAndDelete == null) {
-      return res.status(404).json({ message: `ID doulas ${id} not found ` });
+      return res.status(404).json({ message: `ID psicologas ${id} not found ` });
     }
 
     await findByIdAndDelete.remove();

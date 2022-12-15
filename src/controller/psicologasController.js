@@ -49,7 +49,7 @@ const createPsicologa = async (req, res) => {
     
     const { nome, cidade, estado, contato, email } = req.body;
 
-    const newPsicologa = new psicologa({
+    const newPsicologa = new psicologas({
       nome,
       cidade,
       estado,
@@ -76,7 +76,7 @@ const updatePsicologa = async (req, res) => {
       contato,
       email,
     });
-    const doulaUpdated = await psicologas.findById(req.params.id);
+    const psicologaUpdated = await psicologas.findById(req.params.id);
     res.status(200).json(psicologaUpdated);
   } catch (error) {
     console.error(error);

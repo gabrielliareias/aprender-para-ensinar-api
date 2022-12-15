@@ -1,7 +1,10 @@
 const mongoose = require("mongoose");
 
 const psicologasSchema = new mongoose.Schema({
-  id: { type: String },
+  _id: {
+    type: mongoose.Schema.Types.ObjectId,
+    default: mongoose.Types.ObjectId
+},
   nome: { type: String, required: true },
   cidade: { type: String, required: true },
   estado: { type: String, required: true },

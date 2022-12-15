@@ -1,7 +1,7 @@
 require("dotenv-safe").config()
 const express = require('express');
 const psicologas = require('./routes/psicologasRoutes.js');
-const mongoose = require('./database/dbConnect.js');
+const mongoose = require('./database/dbconnect.js');
 const swaggerUi = require('swagger-ui-express');
 const swaggerFile = require('../swagger/swagger_output.json');
 

@@ -10,10 +10,11 @@ const cors = require("cors")
 
 
 const app = express()
-mongoose.connect()
-
 app.use(express.json())
 app.use(cors())
+mongoose.connect()
+
+
 
 
 app.use('/psicologas', psicologas);
